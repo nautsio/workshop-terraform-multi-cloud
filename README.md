@@ -6,8 +6,8 @@
 1. update ami and use `terraform plan`
 1. use variables
 1. provision instance (shell) 
-1. split Terraform code in multiple files
 1. add vpc (given)
+1. split Terraform code in multiple files
 
 ### Part 2 - Build more advanced infrastructure
 1. multiple instances inside VPC
