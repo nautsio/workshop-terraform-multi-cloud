@@ -10,10 +10,10 @@ resource "aws_instance" "web" {
   }
 
   # select AWS instance type
-  instance_type = "t2.micro"
+  instance_type = "t1.micro"
 
   # Select which AMI to use for the specific region
-  ami = "ami-61e56916"
+  ami = "ami-e7e66a90"
 
   # Storage settings
   root_block_device {

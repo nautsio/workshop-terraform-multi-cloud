@@ -18,11 +18,11 @@ variable "aws_region" {
 variable "aws_ami" {
   description = "AMI to use (by region)"
   default = {
-    eu-west-1 = "ami-e31a6594"
+    eu-west-1 = "ami-971a65e0"
   }
 }
 
 variable "aws_instance_type" {
   description = "AWS Instance type to use"
-  default = "t2.micro"
+  default = "t1.micro"
 }
