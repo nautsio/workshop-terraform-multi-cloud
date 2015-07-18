@@ -1,0 +1,5 @@
+aws_access_key = "key"
+aws_secret_key = "secret"
+aws_region = "eu-west-1"
+key_path = "~/.ssh/mykey_rsa"
+key_name = "mykey"
