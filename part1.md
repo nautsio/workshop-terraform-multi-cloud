@@ -11,11 +11,13 @@
 - The workshop repository
 - The AWS credentials
 - The latest stable version of Terraform
+- Configure the `terraform.tfvars` file
 
 !SUB
 ## Workshop repository
 ```
-$ git clone https://github.com/cargonauts/workshop-terraform-multi-cloud.git
+$ git clone \
+https://github.com/cargonauts/workshop-terraform-multi-cloud.git
 ```
 
 !SUB
@@ -28,96 +30,85 @@ Download the zipfile from:
 ## Terraform
 Download the latest version from [terraform.io](http://www.terraform.io/)
 
-Mac users can also use Homebrew: `brew install terraform`
+Mac users can also use Homebrew: 
+```
+$ brew install terraform
+```
+
+!SUB
+## TFvars file
+Copy the example file: 
+```
+$ cp terraform.tfvars.example terraform.tfvars
+```
+
+!SUB
+## Configure the tfvars file
+```
+aws_access_key = "key"
+aws_secret_key = "secret"
+aws_region = "eu-west-1"
+key_path = "~/.ssh/mykey_rsa"
+key_name = "mykey"
+```
 
 !SLIDE
 # Part 1a: 
 ## Single instance on Amazon
 
 !SUB
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Cargonauts
-
-
-A Xebia initiative
-
-All about data center automation:
-  - Automate, automate, automate!
-  - Code the infrastructure!
-  - Containerize all the things!
-
-[cargonauts.io](http://cargonauts.io)
+## Apply the Terraform code
+```
+$ cd part1a
+$ terraform apply -var-file=../terraform.tfvars
+```
 
 !SUB
-# Who are we?
-
-Adé Mochtar - [ade@cargonauts.io](mailto:ade@cargonauts.io)
-
-Benny Cornelissen - [benny@cargonauts.io](mailto:benny@cargonauts.io)
-
+## What just happened? 
+- Terraform parsed the `variables.tf` and `main.tf` files
+- Terraform compared the code to the current state (but there was no state)
+- Terraform applied the code and created a single server on AWS
 
 !SLIDE
-## What is the
-# modern data center?
+# Part 1b:
+## Update the AMI
 
 !SUB
-Data centers have drasticly evolved past decade
+## Update the AMI
+Edit `main.tf` and change the AMI to `ami-971a65e0`.
+
+```
+
+  # Select which AMI to use for the specific region
+  ami = "ami-971a65e0"
+
+```
 
 !SUB
-## Single server
-![Single server](img/dc_evolution/single.png)<!-- .element: class="dc" -->
+## Check what Terraform will do
+```
+$ terraform plan -var-file=../terraform.tfvars -out part1b.tfplan
+```
 
 !SUB
-## Multiple servers
-![Multiple servers](img/dc_evolution/multiple.png)<!-- .element: class="dc" -->
+## Apply
+If the Terraform plan makes sense to you, apply it:
+```
+$ terraform apply part1b.tfplan
+```
+(note that you don't need the `tfvars` file, as that is now part of the plan)
 
 !SUB
-## Virtualization
-![Virtualization](img/dc_evolution/virtualization.png)<!-- .element: class="dc" -->
+## What just happened?
+`terraform plan`:
+- Terraform parsed the `variables.tf` and `main.tf` files
+- Terraform compared the code to the current state, and found that the AMI has changed.
+- Terraform proposed to 'fix' this by destroying `aws_instance.web` and re-creating it using the new AMI.
+- Terraform saved the plan to `plan1b.tfplan`
 
 !SUB
-## Containerization
-![Containerization](img/dc_evolution/containerization.png)<!-- .element: class="dc" -->
-
-!SUB
-## Cloud
-![Cloud](img/dc_evolution/cloud.png)<!-- .element: class="dc" -->
-
-!SUB
-But more likely...
-
-!SUB
-## All of the above
-![All](img/dc_evolution/all.png)<!-- .element: class="dc" -->
-
+`terraform apply`:
+- Terraform parsed the plan and applied it to the current state
 
 !SLIDE
-## Rise of Software-as-a-Service
-
-A lot of functionality is available as a Service
-
-!SUB
-# Examples
-
-- DNS
-- CDN
-- Database
-
-!SLIDE
-
-
-!SLIDE
-# How to manage this?
 
