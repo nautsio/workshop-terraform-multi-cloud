@@ -1,0 +1,8 @@
+# Site settings
+title: "Automating the modern data center - Cargonauts"
+author: "Adé Mochtar, Benny Cornelissen"
+
+# Build settings
+markdown_ext: "null"
+sass:
+    sass_dir: reveal.js
