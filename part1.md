@@ -1,10 +1,56 @@
 ## Automating the modern data center
-
-Or, how to make your IT department say "Yes!"
+## Workshop
 
 
 !SLIDE
+# Preparation
+
+!SUB
+## You will need
+
+- The workshop repository
+- The AWS credentials
+- The latest stable version of Terraform
+
+!SUB
+## Workshop repository
+```
+$ git clone https://github.com/cargonauts/workshop-terraform-multi-cloud.git
+```
+
+!SUB
+## The AWS credentials
+Download the zipfile from: 
+
+-- INSERT IP HERE --
+
+!SUB
+## Terraform
+Download the latest version from [terraform.io](http://www.terraform.io/)
+
+Mac users can also use Homebrew: `brew install terraform`
+
+!SLIDE
+# Part 1a: 
+## Single instance on Amazon
+
+!SUB
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Cargonauts
+
+
 A Xebia initiative
 
 All about data center automation:
