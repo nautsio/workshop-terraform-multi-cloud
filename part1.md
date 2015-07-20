@@ -17,7 +17,7 @@ https://github.com/cargonauts/workshop-terraform-multi-cloud.git
 
 !SUB
 ## The AWS credentials
-Download the zipfile from: 
+Download the zipfile from:
 
 -- INSERT IP HERE --
 
@@ -25,14 +25,14 @@ Download the zipfile from:
 ## Terraform
 Download the latest version from [terraform.io](http://www.terraform.io/)
 
-Mac users can also use Homebrew: 
+Mac users can also use Homebrew:
 ```
 $ brew install terraform
 ```
 
 !SUB
 ## TFvars file
-Copy the example file: 
+Copy the example file:
 ```
 $ cp terraform.tfvars.example terraform.tfvars
 ```
@@ -43,12 +43,12 @@ $ cp terraform.tfvars.example terraform.tfvars
 aws_access_key = "key"
 aws_secret_key = "secret"
 aws_region = "eu-west-1"
-key_path = "~/.ssh/mykey_rsa"
-key_name = "mykey"
+key_path = "/path/to/openkitchen_rsa"
+key_name = "openkitchen_rsa"
 ```
 
 !SLIDE
-# Part 1a 
+# Part 1a
 ### Single instance on Amazon
 
 !SUB
@@ -59,7 +59,7 @@ $ terraform apply -var-file=../terraform.tfvars
 ```
 
 !SUB
-## What just happened? 
+## What just happened?
 - Terraform parsed the `variables.tf` and `main.tf` files
 - Terraform compared the code to the current state (but there was no state)
 - Terraform applied the code and created a single server on AWS
@@ -110,7 +110,7 @@ $ terraform apply part1b.tfplan
 !SLIDE
 # Part 1c
 ### Use variables
-Most of the resource attributes have been hard-coded so far, but it is highly recommended to use variables whenever possible. In this part, we have rewritten the code from the previous part to use variables whenever possible. 
+Most of the resource attributes have been hard-coded so far, but it is highly recommended to use variables whenever possible. In this part, we have rewritten the code from the previous part to use variables whenever possible.
 
 !SUB
 ## Let's see what has changed
