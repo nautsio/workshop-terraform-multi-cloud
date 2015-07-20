@@ -199,11 +199,3 @@ terraform graph | dot -Tsvg -o example_graph.svg
 ![Example graph](img/example_graph.svg) <!-- .element class="shadow" -->
 
 <small>which means your infrastructure diagrams will always be up-to-date ;-)</small>
-
-
-!SLIDE
-## Change Automation
-
-Goal is to execute complex changesets with minimal human interaction
-
-Execution plans and resource graphs provide insight to enable this
