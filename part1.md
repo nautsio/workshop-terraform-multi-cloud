@@ -1,5 +1,5 @@
 ## Automating the modern data center
-## Workshop
+### Workshop
 
 
 !SLIDE
@@ -53,8 +53,8 @@ key_name = "mykey"
 ```
 
 !SLIDE
-# Part 1a: 
-## Single instance on Amazon
+# Part 1a 
+### Single instance on Amazon
 
 !SUB
 ## Apply the Terraform code
@@ -70,8 +70,8 @@ $ terraform apply -var-file=../terraform.tfvars
 - Terraform applied the code and created a single server on AWS
 
 !SLIDE
-# Part 1b:
-## Update the AMI
+# Part 1b
+### Update the AMI
 
 !SUB
 ## Update the AMI
@@ -108,7 +108,40 @@ $ terraform apply part1b.tfplan
 
 !SUB
 `terraform apply`:
-- Terraform parsed the plan and applied it to the current state
+- Terraform parsed the plan and applied it to the current state:
+  - Destroy `aws_instance.web`
+  - Create new `aws_instance.web` using new AMI
 
 !SLIDE
+# Part 1c
+### Use variables
+Most of the resource attributes have been hard-coded so far, but it is highly recommended to use variables whenever possible. In this part, we have rewritten the code from the previous part to use variables whenever possible. 
+
+!SUB
+## Let's see what has changed
+Take a look at the code and see what has been changed. What is that new file, `outputs.tf`?
+
+!SUB
+## Is our plan still the same?
+Let's copy the state from our previous plan, and find out.
+```
+cd part1c
+cp ../part1a/terraform.tfstate .
+terraform plan -var-file=../terraform.tfvars
+```
+
+!SUB
+## Expectation:
+```
+Refreshing Terraform state prior to plan...
+
+aws_instance.web: Refreshing state... (ID: i-60e8f3ca)
+
+No changes. Infrastructure is up-to-date. This means that Terraform
+could not detect any differences between your configuration and
+the real physical resources that exist. As a result, Terraform
+doesn't need to do anything.
+```
+
+!SUB
 
