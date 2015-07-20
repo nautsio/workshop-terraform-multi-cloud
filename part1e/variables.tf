@@ -23,6 +23,8 @@ variable "aws_ami" {
   description = "AMI to use (by region)"
   default = {
     eu-west-1 = "ami-e31a6594"
+    eu-central-1 = "ami-02b78e1f"
+    us-east-1 = "ami-116d857a"
   }
 }
 
