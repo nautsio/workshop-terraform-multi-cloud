@@ -19,7 +19,7 @@ https://github.com/cargonauts/workshop-terraform-multi-cloud.git
 ## The AWS credentials
 Download the zipfile from:
 
--- INSERT IP HERE --
+https://tools.bennycornelissen.nl/openkitchen.zip
 
 !SUB
 ## Terraform
@@ -143,7 +143,7 @@ doesn't need to do anything.
 Wait. Why would I apply when Terraform isn't going to change anything? Well, remember that `outputs.tf` file you saw earlier? 
 
 ```
-$ terraform apply -var-file=../terraform.tfplan
+$ terraform apply -var-file=../terraform.tfvars
 ```
 
 !SUB
