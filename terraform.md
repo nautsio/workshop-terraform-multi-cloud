@@ -1,5 +1,6 @@
 ![Terraform logo](img/terraform-logo.png) <!-- .element: class="logo" -->
 ## Terraform
+### Workshop
 
 !SUB
 

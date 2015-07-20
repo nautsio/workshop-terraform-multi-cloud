@@ -1,8 +1,3 @@
-## Automating the modern data center
-### Workshop
-
-
-!SLIDE
 # Preparation
 
 !SUB
