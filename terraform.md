@@ -1,9 +1,7 @@
-![Terraform logo](img/terraform-logo.png) <!-- .element: class="logo" -->
+<img src="img/terraform-logo.png" class="header">
 ## Terraform
-### Workshop
 
 !SUB
-
 > Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently. &mdash;
 > [terraform.io](https://terraform.io)
 
