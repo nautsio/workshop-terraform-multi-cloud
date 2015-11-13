@@ -82,6 +82,6 @@ Hint: look at `remote_state` in the Terraform documentation.
 # Feedback
 
 !SUB
-Did you find an error? Do you feel we didn't touch on subjects we should have? Please send us an email or create a pull request! 
+Did you find an error? Do you feel we didn't touch on subjects we should have? Please send us an email or create a pull request!
 
 ade@cargonauts.io / benny@cargonauts.io
